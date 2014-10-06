@@ -1,0 +1,32 @@
+  <h2> Add A New Golf Course </h2>
+
+  <%= form_for @golf_course do |f| %>
+  <% if @golf_course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@golf_course.errors.count, "error") %> prohibited this golf course from being submitted:</h2>
+
+      <ul>
+      <% @golf_course.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :course_rating %><br />
+    <%= f.text_field :course_rating %>
+  </div>
+
+  <div>
+    <%= f.label :slope_rating %><br />
+    <%= f.text_field :slope_rating %>
+  </div>
+
+  <div><%= f.submit "Add New Golf Course", class: "button active" %></div>
+<% end %>

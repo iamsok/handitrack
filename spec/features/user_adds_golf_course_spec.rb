@@ -27,7 +27,6 @@ feature 'user adds a golf course' do
     manufacturer = FactoryGirl.create(:golf_course)
     visit new_golf_course_path
     click_on "Add New Golf Course"
-    save_and_open_page
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Course rating can't be blank")
     expect(page).to have_content("Slope rating can't be blank")

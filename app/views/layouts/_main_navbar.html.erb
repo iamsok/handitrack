@@ -1,0 +1,51 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="/">HandiTrack</a></h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+
+    <ul class="left">
+      <li class="active">
+      <% if !user_signed_in? %>
+        <%= link_to "Sign up", new_user_registration_path %>
+        <% end %>
+      </li>
+
+      <% if !user_signed_in? %>
+        <li class ="active"><a href="/users/sign_in">Sign In</a></li>
+      <% end %>
+
+        <li class="active">
+        <%= link_to "See all golf courses", golf_courses_path %>
+      </li>
+
+      <li>
+        <%= form_tag(golf_courses_path, :method => "get", id: "search-form") do %>
+        <ul>
+          <li>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Golf Courses", name: 'search' %>
+          </li>
+          <li>
+            <%= submit_tag "Search", :title => nil %>
+          </li>
+        </ul>
+        <% end %>
+      </li>
+    </ul>
+    <ul class="right">
+      <% if user_signed_in? %>
+        <li class="active">
+
+          <%= link_to "Profile", edit_user_registration_path %>
+        </li>
+        <li class="active">
+          <%= link_to "Sign out", logout_path %>
+        </li>
+    </ul>
+    <% end %>
+  </section>
+</nav>

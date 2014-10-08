@@ -6,8 +6,8 @@ class ChangeDatesColumnAddNullFalse < ActiveRecord::Migration
   end
 
   def down
-    change_column :scores, :date, :string
-    change_column :scores, :golf_course_id, :integer
-    change_column :scores, :user_id, :integer
+    change_column :scores, :date, :string, null: true
+    change_column :scores, :golf_course_id, :integer, null: true
+    change_column :scores, :user_id, :integer, null: true
   end
 end

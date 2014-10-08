@@ -3,6 +3,7 @@ FactoryGirl.define do
     sequence :name do |n|
      "Los Serranos#{n}"
     end
+    location "Chino Hills"
     course_rating 76.8
     slope_rating 137
   end
@@ -19,5 +20,14 @@ FactoryGirl.define do
     state "CA"
     zip_code 90210
     password 12345678
+  end
+end
+
+FactoryGirl.define do
+  factory :score do
+    score 74
+    date "11/12/13"
+    association :user
+    association :golf_course
   end
 end

@@ -1,13 +1,9 @@
-<h2>Add Score For <%= @golf_course.name %></h2>
-<h6>Location: <%= @golf_course.location %></h6>
-<h6>Course Rating: <%= @golf_course.course_rating %></h6>
-<h6>Slope Rating: <%= @golf_course.slope_rating %></h6>
+  <h2> Add a Score </h2>
 
-  <%= form_for [@golf_course, @score] do |f| %>
+  <%= form_for @score do |f| %>
   <% if @score.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@score.errors.count, "error") %> prohibited this score from being submitted:</h2>
-
     <ul>
       <% @score.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -17,16 +13,19 @@
   <% end %>
 
   <div>
+    <%= f.label :golf_course_id %>
+    <%= f.collection_select :golf_course_id, GolfCourse.all.order(:name), :id, :name, include_blank: true %>
+  </div>
+
+  <div>
     <%= f.label :score %><br />
     <%= f.text_field :score %>
   </div>
 
-    <div>
+  <div>
     <%= f.label :date %><br />
     <%= f.text_field :date %>
   </div>
 
   <div><%= f.submit "Add Score", class: "button active" %></div>
-
-  <%= link_to "Back", :back %>
 <% end %>

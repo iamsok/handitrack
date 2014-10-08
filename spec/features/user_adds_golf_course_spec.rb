@@ -6,6 +6,7 @@ feature 'user adds a golf course' do
     golf_course = FactoryGirl.build(:golf_course)
     visit new_golf_course_path
     fill_in "Name", with: golf_course.name
+    fill_in "Location", with: golf_course.location
     fill_in "Course rating", with: golf_course.course_rating
     fill_in "Slope rating", with: golf_course.slope_rating
     click_on "Add New Golf Course"
@@ -16,6 +17,7 @@ feature 'user adds a golf course' do
     golf_course = FactoryGirl.create(:golf_course)
     visit new_golf_course_path
     fill_in "Name", with: golf_course.name
+    fill_in "Location", with: golf_course.location
     fill_in "Course rating", with: golf_course.course_rating
     fill_in "Slope rating", with: golf_course.slope_rating
     click_on "Add New Golf Course"
@@ -27,6 +29,7 @@ feature 'user adds a golf course' do
     visit new_golf_course_path
     click_on "Add New Golf Course"
     expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Location can't be blank")
     expect(page).to have_content("Course rating can't be blank")
     expect(page).to have_content("Slope rating can't be blank")
   end

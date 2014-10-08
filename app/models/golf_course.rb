@@ -3,4 +3,6 @@ class GolfCourse < ActiveRecord::Base
     uniqueness: {message: "Golf course already exists"}
   validates :course_rating, presence: true
   validates :slope_rating, presence: true
+  validates :location, presence: true
+  has_many :scores
 end

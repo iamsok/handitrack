@@ -10,7 +10,6 @@ feature 'user adds a golf course' do
     fill_in "Slope rating", with: golf_course.slope_rating
     click_on "Add New Golf Course"
     expect(page).to have_content("Golf Course was successfully added!")
-
   end
 
   scenario 'user cannot submit the same golf course' do

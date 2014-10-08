@@ -1,12 +1,12 @@
   <h2> Add A New Score </h2>
 
-  <%= form_for @score do |f| %>
-  <% if @score.errors.any? %>
+  <%= form_for @tee_rating do |f| %>
+  <% if @tee_rating.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@score.errors.count, "error") %> prohibited this score from being submitted:</h2>
+      <h2><%= pluralize(@tee_rating.errors.count, "error") %> prohibited this tee_rating from being submitted:</h2>
 
       <ul>
-      <% @score.errors.full_messages.each do |msg| %>
+      <% @tee_rating.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

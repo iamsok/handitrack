@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
   resources :golf_courses do
+    resources :tee_ratings
+  end
+  resources :tee_ratings do
     resources :scores
   end
+
+  resources :tee_ratings
   resources :scores
+
   devise_for :users
   resources :users, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.

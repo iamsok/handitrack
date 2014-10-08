@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :golf_courses do
+    resources :scores
+  end
+  resources :scores
   devise_for :users
-  resources :golf_courses
   resources :users, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

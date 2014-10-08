@@ -1,4 +1,6 @@
 class GolfCoursesController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @golf_courses = GolfCourse.all
   end

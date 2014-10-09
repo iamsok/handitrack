@@ -15,7 +15,7 @@ class TeeRatingsController < ApplicationController
 
   def create
     binding.pry
-    @tee_rating = TeeRating.new(tee_rating_params)
+      @tee_rating = TeeRating.new(tee_rating_params)
       if @tee_rating.save
         flash[:notice] = 'Score was successfully added!'
         # need to redirect to scores page

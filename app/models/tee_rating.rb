@@ -8,6 +8,6 @@ class TeeRating< ActiveRecord::Base
   belongs_to :golf_course
 
   def self.colors
-    ["red", "white", "blue"]
+    ["Red", "White", "Blue"]
   end
 end

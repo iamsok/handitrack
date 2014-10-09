@@ -32,7 +32,7 @@ end
 
 FactoryGirl.define do
   factory :tee_rating do
-    color "blue"
+    color "Blue"
     slope_rating 71.2
     course_rating 130
     association :golf_course

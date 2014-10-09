@@ -15,8 +15,10 @@ class ScoresController < ApplicationController
 
   def create
     @score = Score.new(score_params)
-    @tee_rating = TeeRating.find_or_create_by(tee_rating_params)
     @golf_course = GolfCourse.find_or_create_by(golf_course_params)
+    new_params = tee_rating_params
+      new_params[:golf_course_id] = @golf_course.id
+    @tee_rating = TeeRating.find_or_create_by(new_params)
     @tee_rating.golf_course = @golf_course
     @score.user = current_user
       if @score.save

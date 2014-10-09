@@ -1,4 +1,6 @@
 class ScoresController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @scores = Score.all
   end
@@ -16,24 +18,21 @@ class ScoresController < ApplicationController
   def create
     @score = Score.new(score_params)
     @golf_course = GolfCourse.find_or_create_by(golf_course_params)
-    new_params = tee_rating_params
-      new_params[:golf_course_id] = @golf_course.id
-    @tee_rating = TeeRating.find_or_create_by(new_params)
-    @tee_rating.golf_course = @golf_course
-    @score.user = current_user
-      if @score.save
-        flash[:notice] = 'Score was successfully submitted!'
-        # need to redirect to scores page
-        redirect_to score_path(@score)
-      else
-        flash[:notice] = 'Please fill in required information'
-        render :new
-      end
+    @tee_rating = TeeRating.find_or_create_by(tee_rating_params.merge(golf_course: @golf_course))
+
+    if @score.save
+      flash[:notice] = 'Score was successfully submitted!'
+      # need to redirect to users profile page
+      redirect_to score_path(@score)
+    else
+      flash[:notice] = 'Please fill in required information'
+      render :new
+    end
   end
 
   private
   def score_params
-    params.require(:score).permit(:score, :date)
+    params.require(:score).permit(:score, :date).merge(user: current_user)
   end
 
   def golf_course_params

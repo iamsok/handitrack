@@ -4,8 +4,6 @@ FactoryGirl.define do
      "Los Serranos#{n}"
     end
     location "Chino Hills"
-    course_rating 76.8
-    slope_rating 137
   end
 end
 
@@ -28,6 +26,15 @@ FactoryGirl.define do
     score 74
     date "11/12/13"
     association :user
+    association :tee_rating
+  end
+end
+
+FactoryGirl.define do
+  factory :tee_rating do
+    color "Blue"
+    slope_rating 71.2
+    course_rating 130
     association :golf_course
   end
 end

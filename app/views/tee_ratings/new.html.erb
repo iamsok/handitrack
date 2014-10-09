@@ -1,0 +1,44 @@
+  <h2> Add A New Score </h2>
+
+  <%= form_for @tee_rating do |f| %>
+  <% if @tee_rating.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tee_rating.errors.count, "error") %> prohibited this tee_rating from being submitted:</h2>
+
+      <ul>
+      <% @tee_rating.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+
+    <div>
+    <%= f.label :course_rating %><br />
+    <%= f.text_field :course_rating %>
+  </div>
+
+  <div>
+    <%= f.label :slope_rating %><br />
+    <%= f.text_field :slope_rating %>
+  </div>
+
+ <div>
+    <%= f.label :score %><br />
+    <%= f.text_field :score %>
+  </div>
+
+  <div><%= f.submit "Add Score", class: "button active" %></div>
+<% end %>
+
+<%= link_to "Back", :back %>

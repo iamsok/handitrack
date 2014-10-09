@@ -11,23 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008153425) do
+ActiveRecord::Schema.define(version: 20141008215307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "golf_courses", force: true do |t|
-    t.string  "name",          null: false
-    t.float   "course_rating", null: false
-    t.integer "slope_rating",  null: false
-    t.string  "location",      null: false
+    t.string "name",     null: false
+    t.string "location", null: false
   end
 
   create_table "scores", force: true do |t|
-    t.integer "score",          null: false
+    t.integer "score",         null: false
+    t.integer "user_id",       null: false
+    t.string  "date",          null: false
+    t.integer "tee_rating_id"
+  end
+
+  create_table "tee_ratings", force: true do |t|
     t.integer "golf_course_id", null: false
-    t.integer "user_id",        null: false
-    t.string  "date",           null: false
+    t.integer "slope_rating",   null: false
+    t.integer "course_rating",  null: false
+    t.string  "color",          null: false
   end
 
   create_table "users", force: true do |t|

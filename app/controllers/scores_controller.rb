@@ -1,4 +1,6 @@
 class ScoresController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @scores = Score.all
   end

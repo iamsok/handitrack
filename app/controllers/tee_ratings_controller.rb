@@ -27,7 +27,7 @@ class TeeRatingsController < ApplicationController
   end
 
   private
-  def golf_course_params
+  def tee_rating_params
     params.require(:tee_rating).permit(:color, :course_rating, :slope_rating)
   end
 end

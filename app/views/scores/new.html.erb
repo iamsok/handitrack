@@ -1,6 +1,7 @@
   <h2> Add A New Score </h2>
 
   <%= form_for @score do |f| %>
+
   <% if @score.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@score.errors.count, "error") %> prohibited this score from being submitted:</h2>
@@ -13,29 +14,43 @@
     </div>
   <% end %>
 
-  <div>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
-  <div>
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
+  <%= f.fields_for @golf_course do |golf_course| %>
+    <div>
+      <%= golf_course.label :name %><br />
+      <%= golf_course.text_field :name %>
+    </div>
 
     <div>
-    <%= f.label :course_rating %><br />
-    <%= f.text_field :course_rating %>
-  </div>
+      <%= golf_course.label :location %><br />
+      <%= golf_course.text_field :location %>
+    </div>
+  <% end %>
 
-  <div>
-    <%= f.label :slope_rating %><br />
-    <%= f.text_field :slope_rating %>
-  </div>
+  <%= f.fields_for @tee_rating do |tee_rating| %>
+    <div>
+      <%= tee_rating.label :color %><br />
+      <%= tee_rating.collection_select :color, TeeRating.colors, :to_s, :to_s %>
+    </div>
+
+    <div>
+      <%= tee_rating.label :course_rating %><br />
+      <%= tee_rating.text_field :course_rating %>
+    </div>
+
+    <div>
+      <%= tee_rating.label :slope_rating %><br />
+      <%= tee_rating.text_field :slope_rating %>
+    </div>
+  <% end %>
 
  <div>
     <%= f.label :score %><br />
     <%= f.text_field :score %>
+  </div>
+
+  <div>
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
   </div>
 
   <div><%= f.submit "Add Score", class: "button active" %></div>

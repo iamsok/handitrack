@@ -9,12 +9,15 @@ class ScoresController < ApplicationController
 
   def new
     @score = Score.new
+    @golf_course = GolfCourse.new
+    @tee_rating = TeeRating.new
   end
 
   def create
     @score = Score.new(score_params)
-    @golf_course = GolfCourse.find(params[:golf_course_id])
-      @score.golf_course = @golf_course
+    @tee_rating = TeeRating.find_or_create_by(tee_rating_params)
+    @golf_course = GolfCourse.find_or_create_by(golf_course_params)
+    @tee_rating.golf_course = @golf_course
     @score.user = current_user
       if @score.save
         flash[:notice] = 'Score was successfully submitted!'
@@ -29,5 +32,13 @@ class ScoresController < ApplicationController
   private
   def score_params
     params.require(:score).permit(:score, :date)
+  end
+
+  def golf_course_params
+    params[:score].require(:golf_course).permit(:name, :location)
+  end
+
+  def tee_rating_params
+    params[:score].require(:tee_rating).permit(:color, :course_rating, :slope_rating)
   end
 end

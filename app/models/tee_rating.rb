@@ -6,4 +6,8 @@ class TeeRating< ActiveRecord::Base
   validates :color, presence: true
   has_many :scores
   belongs_to :golf_course
+
+  def self.colors
+    ["red", "white", "blue"]
+  end
 end

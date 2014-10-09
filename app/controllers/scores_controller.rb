@@ -19,11 +19,11 @@ class ScoresController < ApplicationController
     @score = Score.new(score_params)
     @golf_course = GolfCourse.find_or_create_by(golf_course_params)
     @tee_rating = TeeRating.find_or_create_by(tee_rating_params.merge(golf_course: @golf_course))
-
+    @score.tee_rating = @tee_rating
     if @score.save
       flash[:notice] = 'Score was successfully submitted!'
       # need to redirect to users profile page
-      redirect_to score_path(@score)
+      redirect_to user_path(current_user)
     else
       flash[:notice] = 'Please fill in required information'
       render :new

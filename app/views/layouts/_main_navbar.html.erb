@@ -40,7 +40,7 @@
       <% if user_signed_in? %>
         <li class="active">
 
-          <%= link_to "Profile", edit_user_registration_path %>
+          <%= link_to "Profile", user_path(current_user) %>
         </li>
         <li class="active">
           <%= link_to "Sign out", logout_path %>

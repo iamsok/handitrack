@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user adds a score' do
 
-  scenario  'with all required attributes and new golf course and tee rating', focus: true do
+  scenario  'with all required attributes and new golf course and tee rating' do
     user = FactoryGirl.create(:user)
     visit root_path
     click_link "Sign In"
@@ -27,7 +27,7 @@ feature 'user adds a score' do
   end
 
   scenario 'with all required attributes and existing golf course and tee rating' do
-    user = FactoryGirl.build(:user)
+    user = FactoryGirl.create(:user)
     golf_course = FactoryGirl.build(:golf_course)
     tee_rating = FactoryGirl.build(:tee_rating)
     visit root_path
@@ -43,7 +43,7 @@ feature 'user adds a score' do
     visit new_score_path
     fill_in "Name", with: golf_course.name
     fill_in "Location", with: golf_course.location
-    fill_in "Tee color", with: tee_rating.color
+    select tee_rating.color, from: "Color"
     fill_in "Course rating", with: tee_rating.course_rating
     fill_in "Slope rating", with: tee_rating.slope_rating
     fill_in "Score", with: score.score

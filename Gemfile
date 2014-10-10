@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'spring'
 gem 'foundation-rails', '5.4.3.1'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do |variable|
   gem 'capybara'

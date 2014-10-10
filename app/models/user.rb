@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :profile_photo, ProfilePhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,16 +19,21 @@ class User < ActiveRecord::Base
 
   def differential
     differential = []
-    recent_scores = scores.sort_by { |x| x.date }.reverse
+    recent_scores = scores.order(date: :desc)
     recent_scores.each do |score|
-      differential << (score.score - score.course_rating) * 113 / score.slope_rating
+      differential << (((score.score - score.tee_rating.course_rating) * 113) / score.tee_rating.slope_rating)
     end
     differential.first(20).sort
   end
 
   def handicap
-    array = differential
-    array.inject{|sum,x| sum + x }
-    (array / array.length) * 0.96
+    differentials = differential
+    if differentials.count < 16
+      divisors = (differentials.count - 3) / 2
+    else
+      divisors = differentials.count - 10
+    end
+    sum = differentials.first(divisors).inject{ |sum, x| sum + x }
+    ((sum / divisors) * 0.96).round(1)
   end
 end

@@ -1,17 +1,26 @@
-<h3><%= @user.name%></h3>
+<div class="panel profile_photo">
+  <img src="<%= @user.profile_photo %>" atl="profile photos" class="profile"/>
+  <div>
+    <h3><%= @user.name%></h3>
+  </div>
+</div>
+
 <h6><%= "#{@user.city.titleize}, #{@user.state.capitalize} #{@user.zip_code}" %></h6>
 
-<h4> Current Handicap <%= @user.handicap %>
+<h4> Current Handicap: <%= @scores.count < 5 ? 'Requires a minimum of 5 scores' : @user.handicap %>
 
 <table>
   <tr>
     <th>Golf Course</th>
     <th>Score</th>
+    <th>Date</th>
   </tr>
-    <% @scores.each do |score| %>
+    <% recent_scores = @scores.sort_by { |x| x.date }.reverse %>
+    <% recent_scores.each do |score| %>
       <tr>
         <td><%= score.tee_rating.golf_course.name %> </td>
         <td><%= score.score %></td>
+        <td><%= score.date %></td>
       </tr>
     <% end %>
 </table>

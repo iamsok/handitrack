@@ -22,7 +22,6 @@ class ScoresController < ApplicationController
     @score.tee_rating = @tee_rating
     if @score.save
       flash[:notice] = 'Score was successfully submitted!'
-      # need to redirect to users profile page
       redirect_to user_path(current_user)
     else
       flash[:notice] = 'Please fill in required information'

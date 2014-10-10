@@ -20,7 +20,7 @@
       <% end %>
 
         <li class="active">
-        <%= link_to "Submit a Score", golf_courses_path %>
+        <%= link_to "Submit a Score", new_score_path %>
       </li>
 
       <li>
@@ -40,7 +40,7 @@
       <% if user_signed_in? %>
         <li class="active">
 
-          <%= link_to "Profile", edit_user_registration_path %>
+          <%= link_to "Profile", user_path(current_user) %>
         </li>
         <li class="active">
           <%= link_to "Sign out", logout_path %>

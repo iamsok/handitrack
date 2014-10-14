@@ -16,6 +16,7 @@ gem 'fog'
 gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'turbolinks'
 
 group :development, :test do |variable|
   gem 'capybara'

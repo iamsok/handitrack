@@ -24,7 +24,7 @@
       </li>
 
       <li>
-        <%= form_tag(golf_courses_path, :method => "get", id: "search-form") do %>
+        <%= form_tag(users_path, :method => "get", id: "search-form") do %>
         <ul>
           <li>
             <%= text_field_tag :search, params[:search], placeholder: "Search Friends", name: 'search' %>

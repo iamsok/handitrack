@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_many :scores
 
+
   mount_uploader :profile_photo, ProfilePhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -17,6 +18,9 @@ class User < ActiveRecord::Base
   validates :state, presence: true
   validates :zip_code, presence: true
 
+  def self.search(query)
+    where("first_name ilike :q or last_name ilike :q", q: "%#{query}%")
+  end
 
   def name
     first_name.capitalize + " " + last_name.capitalize

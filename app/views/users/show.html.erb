@@ -31,7 +31,7 @@
 <ul>
   <% @user.friendships.each do |friendship| %>
     <li>
-      <%=h friendship.friend.name %>
+      <%= link_to friendship.friend.name, user_path(friendship.friend_id) %>
       <%= button_to "remove", user_friendship_path(@user, friendship), :confirm => "Are you sure you want to delete this attachment?", :method => :delete %>
     </li>
   <% end %>

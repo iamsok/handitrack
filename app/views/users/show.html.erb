@@ -42,7 +42,7 @@
 <h4>Friended by Others</h4>
 <ul>
   <% @user.inverse_friends.each do |user| %>
-    <li><%=h user.username %></li>
+    <li><%=h user.name %></li>
   <% end %>
 </ul>
 

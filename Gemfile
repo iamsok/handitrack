@@ -14,6 +14,8 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do |variable|
   gem 'capybara'

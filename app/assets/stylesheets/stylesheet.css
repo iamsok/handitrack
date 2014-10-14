@@ -7,3 +7,28 @@
   height: 100%;
   background-size: cover;
 }
+
+.intro{
+  background-color: rgba(0, 8, 0, 0.5);
+  padding: 2em;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 6em;
+  color: white;
+  border-radius: 10px;
+}
+
+.intro h3{
+  color: white;
+  text-align: center;
+  font-family: 'Signika', sans-serif;
+}
+
+body{
+  font-family: "futura";
+  font-size: 1.4em;
+}
+.started {
+  display: block;
+  margin: 0 auto;
+}

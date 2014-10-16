@@ -9,8 +9,22 @@
   background-attachment: fixed;
 }
 
+.sign_in{
+  padding-left:20%;
+  padding-right:20%;
+}
+
+.sign_up{
+  padding-left:10%;
+  padding-right:10%;
+}
+
 .transparent{
   opacity: 0.4;
+}
+
+.user_add_button{
+  display: inline-block;
 }
 
 .intro-container {

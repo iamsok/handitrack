@@ -1,5 +1,8 @@
 <h2>Log in</h2>
+<!-- credit codepen.io -->
+<figure><img src="http://www.massresort.com/images/gallery/400/golf-woodstone1.jpg" width="180px" height="180px" /><img src="http://www.hcr.com/images/sized/images/activities/Wailua_Golf_17-300x300.jpg" width="180px" height="180px" /><img src="http://www.joe.com/cms/images/thumbs/SouthWoodGolf01.jpg" width="180px" height="180px" /><img src="http://www.massresort.com/images/gallery/400/golf-woodstone2.jpg" width="180px" height="180px" /><img src="http://www.massresort.com/images/gallery/400/Woodstone-Meadows-Golf-Autumn.jpg" width="180px" height="180px" /></figure>
 
+<div class="sign_in">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
@@ -13,7 +16,7 @@
 
   <div><%= f.submit "Log in" %></div>
 <% end %>
-<!-- credit codepen.io -->
+</div>
+
 <%= render "devise/shared/links" %>
-<br><br>
-<figure><img src="http://www.massresort.com/images/gallery/400/golf-woodstone1.jpg" width="180px" height="180px" /><img src="http://www.hcr.com/images/sized/images/activities/Wailua_Golf_17-300x300.jpg" width="180px" height="180px" /><img src="http://www.joe.com/cms/images/thumbs/SouthWoodGolf01.jpg" width="180px" height="180px" /><img src="http://www.massresort.com/images/gallery/400/golf-woodstone2.jpg" width="180px" height="180px" /><img src="http://www.massresort.com/images/gallery/400/Woodstone-Meadows-Golf-Autumn.jpg" width="180px" height="180px" /></figure>
+

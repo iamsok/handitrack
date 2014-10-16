@@ -17,6 +17,7 @@ gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'turbolinks'
+gem 'venmo', '~> 0.4.0'
 
 group :development, :test do |variable|
   gem 'capybara'

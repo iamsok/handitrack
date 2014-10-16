@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
 
 
   mount_uploader :profile_photo, ProfilePhotoUploader
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -44,5 +43,9 @@ class User < ActiveRecord::Base
     end
     sum = differentials.first(divisors).inject{ |sum, x| sum + x }
     ((sum / divisors) * 0.96).round(1)
+  end
+
+  def friends_with?(user)
+    friendships.find_by(friend: user) || friendships.find_by(user: user)
   end
 end

@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="/">HandiTrack</a></h1>
+      <h1><strong><a href="/">HandiTrack</a></strong></h1>
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
@@ -27,10 +27,10 @@
         <%= form_tag(users_path, :method => "get", id: "search-form") do %>
         <ul>
           <li>
-            <%= text_field_tag :search, params[:search], placeholder: "Search Friends", name: 'search' %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Friends", class: "radius", name: 'search' %>
           </li>
           <li>
-            <%= submit_tag "Search", :title => nil %>
+            <%= submit_tag "Search", class: "button radius", :title => nil %>
           </li>
         </ul>
         <% end %>
@@ -38,9 +38,11 @@
     </ul>
     <ul class="right">
       <% if user_signed_in? %>
-        <li class="active">
+        <li class="active border">
 
-          <%= link_to "Profile", user_path(current_user) %>
+      <%= link_to user_path(current_user) do %>
+        <i class="fa fa-user"></i>
+        <% end %>
         </li>
         <li class="active">
           <%= link_to "Sign out", logout_path %>

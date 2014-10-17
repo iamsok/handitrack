@@ -16,8 +16,8 @@ gem 'fog'
 gem 'mini_magick'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'turbolinks'
 gem 'venmo', '~> 0.4.0'
+gem 'font-awesome-rails'
 
 group :development, :test do |variable|
   gem 'capybara'

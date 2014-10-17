@@ -8,6 +8,30 @@
   background-position: center center;
   background-attachment: fixed;
 }
+h1, h2, h3, h4, h5, h6{
+  font-family:'Signika', sans-serif;
+}
+
+.profile{
+  background-color: #e3f3e9;
+}
+
+
+
+#search-form{
+  margin-left: 10px;
+}
+
+.alert-box .secondary{
+  height:10px;
+}
+
+.border{
+  border-right: 1px solid #333;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 .sign_in{
   padding-left:20%;
@@ -23,12 +47,29 @@
   opacity: 0.4;
 }
 
+.user_list{
+  width: 800px;
+  margin: 0 auto;
+}
+
+.user{
+  width: 200px;
+  height: 45px;
+  float: left;
+}
+
 .user_add_button{
-  display: inline-block;
+  width: 600px;
+  height: 45px;
+  margin-left: 200px;
 }
 
 .intro-container {
   padding-top: 10%;
+}
+
+.shape{
+  border-radius: 25px;
 }
 
 .intro{
@@ -40,14 +81,26 @@
   border-radius: 10px;
 }
 
+.top-bar a, .top-bar li a, .top-bar-section ul li a {
+  font-family: 'Signika', sans-serif;
+}
+
+.fa-user::before {
+  font-size: 1.5em;
+}
+
 .intro h3{
   color: white;
   text-align: center;
   font-family: 'Signika', sans-serif;
 }
 
+.active{
+  font-family: 'Signika', sans-serif;
+}
+
 body{
-  font-family: 'Signika';
+  font-family: 'Signika', sans-serif;
   font-size: 1.4em;
 }
 .started {
@@ -57,6 +110,7 @@ body{
 
 ul {
   list-style-type: none;
+  left: 0 !important;
 }
 
 /*profile credit codepen.io*/

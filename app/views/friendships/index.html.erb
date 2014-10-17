@@ -1,4 +1,4 @@
-<% "Friend List" %>
+!<% "Friend List" %>
 
 <div id="users">
   <% @users.each do |user| %>
@@ -7,7 +7,7 @@
         <%= link_to user.name, user_path(user) %>
       </div>
       <div class="user_add_button">
-        <%= link_to "Add Friend", users_path, class: "button tiny round" %>
+        <%= link_to "Add Friend", user_path(user), class: "button tiny round" %>
       </div>
     </div>
   <% end %>

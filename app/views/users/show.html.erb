@@ -45,36 +45,26 @@
 <div class="row">
   <div class="large-12 columns">
     <div class="large-6 columns">
-      <div class="tabs-container">
-        <div class="large-6 columns tabs-nav">
-          <a href="#tab-1" class="tab button round">Following</a>
-        </div>
+      <%= link_to "Following", "#", class: "button dropdown round small", data: { dropdown: "following" } %>
+        <ul id="following" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+          <% @user.friendships.each do |friendship| %>
+            <li>
+              <%= link_to friendship.friend.name, user_path(friendship.friend_id) %>
+            </li>
+          <% end %>
+        </ul>
 
-        <div class="large-6 columns tabs-nav">
-          <a href="#tab-2" class="tab button round">Followers</a>
-        </div>
-
-        <div id="tab-1" class="large-6 columns tab-pane">
-          <ul>
-            <% @user.friendships.each do |friendship| %>
-              <li>
-                <%= link_to friendship.friend.name, user_path(friendship.friend_id) %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
-
-        <div id="tab-2" class="large-6 columns tab-pane">
-          <ul>
-            <% @user.inverse_friends.each do |user| %>
-              <li>
-                <%= link_to user.name, user_path(user) %>
-              </li>
-            <% end %>
-          </ul>
-        </div>
+      <%= link_to "Followers", "#", class: "button dropdown round small", data: { dropdown: "followers" } %>
+        <ul id="followers" data-dropdown-content class="f-dropdown" aria-hidden="true" tabindex="-1">
+          <% @user.inverse_friends.each do |user| %>
+            <li>
+              <%= link_to user.name, user_path(user) %>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
 </div>
+
 <h6><%= link_to "Find Friends", users_path %></h6>

@@ -18,6 +18,8 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
+  padding-top: 2%;
+  overflow: auto;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -109,14 +111,9 @@ h1, h2, h3, h4, h5, h6{
   background-color: rgba(0, 8, 0, 0.5);
   padding: 2em;
   width: 60%;
-  height: 100%;
   margin: 0 auto;
   color: white;
   border-radius: 10px;
-}
-
-.gc-container{
-  padding-top: 2%;
 }
 
 .active{

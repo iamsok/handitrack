@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates :zip_code, presence: true
 
   def self.search(query)
-    where("first_name ilike :q or last_name ilike :q", q: "%#{query}%")
+    where("first_name ilike :q or last_name ilike :q or first_name ilike :q", q: "%#{query}%")
   end
 
   def name

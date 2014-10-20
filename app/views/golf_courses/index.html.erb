@@ -1,11 +1,20 @@
- <h1>Golf Courses</h1>
+<h1>Golf Courses</h1>
+<%= form_tag golf_courses_path, method: :get do %>
+  <%= text_field_tag :golf_course_search %>
+  <%= submit_tag "Search Nearby Golf Courses", class: "button round tiny", :title => nil%>
+<% end %>
+
+<% unless @golf_courses.nil? %>
+  <% @golf_courses.each do |gc| %>
+    <ul>
+      <li>
+        <%= "#{gc[:name]} - #{gc[:location][0]}, #{gc[:location][1]}, #{gc[:location][2]}" %>
+      </li>
+        <ul>
+          <%= "Phone Number: #{gc[:phone]} // Rating: #{gc[:rating]}"  %>
+        </ul>
+    </ul>
+  <% end %>
+<% end %>
 
 
-<p><%= link_to "Add a new score", new_score_path %></p>
-
-<ol>
- <h3> List of golf courses </h3>
- <% @golf_courses.each do |golf_course| %>
-  <li><%= link_to golf_course.name, golf_course_path(golf_course) %> - <%= golf_course.course_rating %> - <%= golf_course.slope_rating %></li>
- <% end %>
-</ol>

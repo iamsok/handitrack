@@ -18,6 +18,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'venmo', '~> 0.4.0'
 gem 'font-awesome-rails'
+gem 'yelp', require: 'yelp'
 
 group :development, :test do |variable|
   gem 'capybara'

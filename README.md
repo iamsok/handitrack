@@ -1,28 +1,7 @@
-== README
+# HandiTrak
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+HandiTrak is a golf network system, allowing golfers to keep track of their scores and handicap, connect with other golfers and track their status, and search for golf courses. 
 
-Things you may want to cover:
+As a golf professional, one of the major problems I encounter is golfers not knowing what their actual handicap is. Golfers spend hundreds, sometimes thousands, of dollars on golf expenses such as greens fees, equipment and lessons, but do not feel the need to spend a few dollars on a handicap system. Creating a free, simple, easy to use app that allows users to both track their own handicap, as well as their buddies will keep the game more pure and accurate.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+#Website: handitrak.herokuapp.com
